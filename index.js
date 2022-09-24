@@ -2,6 +2,7 @@ const express = require('express');
 const homeController = require('./controllers/homeController')
 const createController = require('./controllers/createController')
 const aboutController = require('./controllers/aboutController')
+const detailsController = require('./controllers/detailsController')
 
 const hbs = require('express-handlebars').create({
     extname: '.hbs'
@@ -19,6 +20,7 @@ app.use('/static', express.static('static'));
 app.use(homeController)
 app.use('/create', createController)
 app.use('/about', aboutController)
+app.use('/details', detailsController)
 
 
 app.listen(port, ()=> console.log(`Server listening on port: ${port}`))
