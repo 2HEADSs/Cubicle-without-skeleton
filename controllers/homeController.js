@@ -1,8 +1,12 @@
 const router = require('express').Router();
+const {getAll} = require('../services/dataService')
 
-
+const cubes = getAll()
 router.get('/', (req, res)=>{
-    res.render('index')
+    console.log(cubes);
+    res.render('index',{
+        cubes
+    })
 });
 
 
