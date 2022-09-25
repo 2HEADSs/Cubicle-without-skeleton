@@ -8,7 +8,10 @@ router.get('/', (req, res) => {
     const cubes = getAll(search, from, to);
 
     res.render('index', {
-        cubes
+        search,
+        from,
+        to,
+        cubes,
     })
 });
 
