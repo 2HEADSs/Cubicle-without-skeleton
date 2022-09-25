@@ -28,7 +28,7 @@ function getAll(search, from, to) {
         .filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || '')
         .filter(c => c.difficulty >= from && c.difficulty <= to)
     console.log(output);
-    return output
+    return output.length > 0? output : data
 
 }
 
