@@ -17,8 +17,19 @@ async function persist() {
 
 
 
-function getAll() {
-    return data;
+function getAll(search, from, to) {
+    from = Number(from) || Number.MIN_SAFE_INTEGER;
+    to = Number(to) || Number.MAX_SAFE_INTEGER;
+    search = search || ""
+    console.log(`FROM ${from}`);
+    console.log(`TO ${to}`);
+
+    const output = data
+        .filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || '')
+        .filter(c => c.difficulty >= from && c.difficulty <= to)
+    console.log(output);
+    return output
+
 }
 
 function getById(id) {
@@ -26,19 +37,19 @@ function getById(id) {
 }
 
 
-async function create(cubicData){
+async function create(cubicData) {
     const cube = {
         id: getId(),
         name: cubicData.name,
-        difficulty :  Number(cubicData.difficulty),
-        imgUrl :  cubicData.imgUrl,
+        difficulty: Number(cubicData.difficulty),
+        imgUrl: cubicData.imgUrl,
         description: cubicData.description,
 
     }
     data.push(cube);
     await persist();
     return cube;
-    
+
 }
 
 function getId() {

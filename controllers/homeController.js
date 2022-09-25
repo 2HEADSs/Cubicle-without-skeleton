@@ -1,9 +1,13 @@
 const router = require('express').Router();
-const {getAll} = require('../services/dataService')
+const { getAll } = require('../services/dataService')
 
-const cubes = getAll()
-router.get('/', (req, res)=>{
-    res.render('index',{
+router.get('/', (req, res) => {
+    const search = req.query.search;
+    const from = req.query.from;
+    const to = req.query.to;
+    const cubes = getAll(search, from, to);
+
+    res.render('index', {
         cubes
     })
 });
