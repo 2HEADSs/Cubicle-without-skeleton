@@ -21,13 +21,10 @@ function getAll(search, from, to) {
     from = Number(from) || Number.MIN_SAFE_INTEGER;
     to = Number(to) || Number.MAX_SAFE_INTEGER;
     search = search || ""
-    console.log(`FROM ${from}`);
-    console.log(`TO ${to}`);
 
     const output = data
         .filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || '')
         .filter(c => c.difficulty >= from && c.difficulty <= to)
-    console.log(output);
     return output.length > 0? output : data
 
 }
