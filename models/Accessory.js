@@ -9,8 +9,7 @@ const accessorySchema = new Schema({
         }
     },
     description: { type: String, required: true },
-
-    //TODO ref to cubee
+    cube: { type: Types.ObjectId, ref: 'Cube' }
 });
 
 

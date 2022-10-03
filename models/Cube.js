@@ -10,7 +10,7 @@ const cubeSchema = new Schema({
         }
     },
     difficultyLevel: { type: Number, required: true, min: 1, max: 6 },
-    //TODO ref to accesory
+    accessories: [{ type: Types.ObjectId, ref: 'Accessory' }]
 });
 
 // cubeSchema.path('imgUrl').validate(function () {
