@@ -9,7 +9,7 @@ const accessorySchema = new Schema({
         }
     },
     description: { type: String, required: true },
-    cube: { type: Types.ObjectId, ref: 'Cube' }
+    cubes: [{ type: Types.ObjectId, ref: 'Cube' }]
 });
 
 
