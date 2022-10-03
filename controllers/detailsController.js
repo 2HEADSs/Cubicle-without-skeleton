@@ -9,4 +9,12 @@ router.get('/:id', async(req, res) => {
 });
 
 
+router.get('/:id/attach', async(req, res) => {
+    console.log(req.params.id);
+    const cube = await getById(req.params.id);
+    res.render('attachAccessory', {
+        cube
+    })
+});
+
 module.exports = router
