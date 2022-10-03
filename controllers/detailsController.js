@@ -20,4 +20,10 @@ router.get('/:id/attach', async (req, res) => {
     })
 });
 
+router.post('/:id/attach', async (req, res) => {
+    const accessoryId = req.body.accessory;
+    res.redirect(`/details/${req.params.id}`)
+    //id - this is cube ID
+})
+
 module.exports = router
