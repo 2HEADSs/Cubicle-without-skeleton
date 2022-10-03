@@ -1,8 +1,8 @@
-
-      <h1>{{cube.name}}</h1>
-      <img class="cube" src={{cube.imgUrl}}>
-      <div class="details">
-        <p><span>Description:</span> {{cube.description}}</p>
-        <p><span>Difficulty level:</span>{{cube.difficultyLevel}}</p>
-        <a class="btn" href="/">Back</a>
-      </div>
+<h1>{{cube.name}}</h1>
+<img class="cube" src={{cube.imgUrl}}>
+<div class="details">
+  <p><span>Description:</span> {{cube.description}}</p>
+  <p><span>Difficulty level:</span>{{cube.difficultyLevel}}</p>
+  <a class="btn" href="/">Back</a>
+  <a class="btn" href="/details/{{cube._id}}/attach">Attach</a>
+</div>
