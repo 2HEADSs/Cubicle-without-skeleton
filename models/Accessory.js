@@ -5,7 +5,7 @@ const accessorySchema = new Schema({
     imgUrl: {
         type: String, required: true, validate: {
             validator: /^https?/g,
-            message: 'Image should be a link'
+            message: 'Image accessory should be a link'
         }
     },
     description: { type: String, required: true },

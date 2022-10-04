@@ -6,16 +6,13 @@ const cubeSchema = new Schema({
     imgUrl: {
         type: String, required: true, validate: {
             validator: /^https?/g,
-            message: 'Image should be a link'
+            message: 'Image cube should be a link'
         }
     },
     difficultyLevel: { type: Number, required: true, min: 1, max: 6 },
     accessories: [{ type: Types.ObjectId, ref: 'Accessory' }]
 });
 
-// cubeSchema.path('imgUrl').validate(function () {
-//     return this.imgUrl.startsWith('http')
-// }, 'Imahe URL should be a link!')
 
 const Cube = model('Cube', cubeSchema);
 

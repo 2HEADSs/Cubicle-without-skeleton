@@ -125,6 +125,11 @@ div.details {
     padding: 1em;
 }
 
+div.details a {
+    margin: auto;
+    display: inline-block;
+}
+
 span {
     font-weight: bolder;
     font-size: 17px;
@@ -235,6 +240,11 @@ footer {
     text-align: center;
     color: white;
     font-size: 20px;
+}
+
+div.accessory {
+    margin: auto;
+    display: inline-block;
 }
 
 /*Animations & Transitions

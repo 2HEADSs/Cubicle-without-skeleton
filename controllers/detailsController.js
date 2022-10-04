@@ -4,6 +4,8 @@ const { getAll } = require('../services/accessorySevice')
 
 router.get('/:id', async (req, res) => {
     const cube = await getById(req.params.id);
+    console.log('detailsController - get/:id');
+    console.log(cube);
     res.render('details', {
         cube
     })
