@@ -3,19 +3,17 @@ const Cube = require('../models/Cube')
 
 
 
-async function getAll(search, from, to) {
-    // from = Number(from) || Number.MIN_SAFE_INTEGER;
-    // to = Number(to) || Number.MAX_SAFE_INTEGER;
-    // search = search || ""
+async function getAll(search = "", from, to) {
+    console.log(search, from, to);
+    let cubes = await Cube.find({}).lean()
+    from = Number(from) || 0;
+    to = Number(to) || 6;
+console.log(cubes);
+    const output = cubes
+        .filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || '')
+        .filter(c => c.difficultyLevel >= from && c.difficultyLevel <= to)
 
-    // const output = data
-    //     .filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || '')
-    //     .filter(c => c.difficulty >= from && c.difficulty <= to)
-    // return output.length > 0 ? output : data
-    // const allCubes = await Cube.find({}).lean()
-    // console.log(allCubes);
-    // return allCubes;
-    return Cube.find({}).lean()
+    return output;
 
 }
 
