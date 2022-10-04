@@ -20,7 +20,7 @@ async function getAll(search, from, to) {
 }
 
 function getById(id) {
-    return Cube.findById(id).populate('accessories').lean()
+    return  Cube.findById(id).populate('accessories').lean()
 }
 
 
