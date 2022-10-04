@@ -36,8 +36,6 @@ async function create(cubicData) {
 }
 
 async function attachAccessory(cubeId, accessoryId) {
-    console.log('CubeId  & AccessoryId');
-    console.log(cubeId, accessoryId);
 
     const cube = await Cube.findById(cubeId);
     const accessory = await Accessory.findById(accessoryId)

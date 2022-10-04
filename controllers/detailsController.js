@@ -16,6 +16,8 @@ router.get('/:id/attach', async (req, res) => {
 
     const cube = await getById(req.params.id);
     const accessories = await getAll()
+
+    // Check if accessory is already attached to the cube
     let notAttached = [];
     let alreadyAttached = [];
 
@@ -29,9 +31,7 @@ router.get('/:id/attach', async (req, res) => {
             notAttached.push(accessory)
         }
     }
-    console.log(notAttached);
-    console.log('<--------------------->');
-    // console.log(accessories);
+
     res.render('attachAccessory', {
         cube,
         notAttached
@@ -41,6 +41,7 @@ router.get('/:id/attach', async (req, res) => {
 
 router.post('/:id/attach', async (req, res) => {
     const accessoryId = req.body.accessory;
+    console.log(req.body);
     const cubeId = req.params.id
     res.redirect(`/details/${cubeId}`)
     //id - this is cube ID
