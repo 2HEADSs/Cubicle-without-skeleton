@@ -20,17 +20,19 @@ router.get('/:id/attach', async (req, res) => {
     // Check if accessory is already attached to the cube
     let notAttached = [];
     let alreadyAttached = [];
-
-    for (let accessory of cube.accessories) {
-        alreadyAttached.push(accessory._id.toString())
-    };
-
-
-    for (let accessory of accessories) {
-        if (!alreadyAttached.includes(accessory._id.toString())) {
-            notAttached.push(accessory)
-        }
+    if (cube.accessories) {
+        cube.accessories.map(a => alreadyAttached.push(a._id.toString()))
+        accessories.map(a => {
+            if (!alreadyAttached.includes(a._id.toString())) {
+                notAttached.push(a)
+            }
+        });
+    } else {
+        notAttached = accessories
     }
+    
+    console.log(notAttached);
+
 
     res.render('attachAccessory', {
         cube,
