@@ -8,7 +8,6 @@ async function getAll(search = "", from, to) {
     let cubes = await Cube.find({}).lean()
     from = Number(from) || 0;
     to = Number(to) || 6;
-console.log(cubes);
     const output = cubes
         .filter(c => c.name.toLowerCase().includes(search.toLowerCase()) || '')
         .filter(c => c.difficultyLevel >= from && c.difficultyLevel <= to)

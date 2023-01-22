@@ -30,10 +30,6 @@ router.get('/:id/attach', async (req, res) => {
     } else {
         notAttached = accessories
     }
-    
-    console.log(notAttached);
-
-
     res.render('attachAccessory', {
         cube,
         notAttached
@@ -43,7 +39,6 @@ router.get('/:id/attach', async (req, res) => {
 
 router.post('/:id/attach', async (req, res) => {
     const accessoryId = req.body.accessory;
-    console.log(req.body);
     const cubeId = req.params.id
     res.redirect(`/details/${cubeId}`)
     //id - this is cube ID
